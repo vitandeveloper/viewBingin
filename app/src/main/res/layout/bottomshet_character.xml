@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/containerDialog"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageComic"
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:layout_marginLeft="@dimen/marginLittle"
+                        android:layout_marginTop="@dimen/marginLittle"
+                        android:background="@color/background"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textComic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/marginLittle"
+                        android:layout_marginRight="@dimen/marginLittle"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textMean"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageComic"
+                        app:layout_constraintTop_toTopOf="@+id/imageComic" />
+
+                    <TextView
+                        android:id="@+id/textComicDescrip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/marginLittle"
+                        android:layout_marginRight="@dimen/marginLittle"
+                        android:textColor="@color/black_light"
+                        android:textSize="@dimen/textLittle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageComic"
+                        app:layout_constraintTop_toBottomOf="@+id/textComic" />
+
+                    <ImageView
+                        android:id="@+id/buttonFav"
+                        android:layout_width="@dimen/buttonCircle"
+                        android:layout_height="@dimen/buttonCircle"
+                        android:src="@drawable/ic_fav_line"
+                        android:padding="@dimen/marginLittle"
+                        android:layout_marginRight="@dimen/marginLittle"
+                        android:background="@drawable/sp_circle_button_acent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textViewComics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLittle"
+                    android:layout_marginTop="@dimen/marginLittle"
+                    android:text="@string/comics"
+                    android:textColor="@color/black_dark"
+                    android:textSize="@dimen/textMean"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageComic" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerComics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLittle"
+                    android:layout_marginTop="@dimen/marginLittle"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewComics" />
+
+                <TextView
+                    android:id="@+id/textViewSeries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLittle"
+                    android:layout_marginTop="@dimen/marginLittle"
+                    android:text="@string/series"
+                    android:textColor="@color/black_dark"
+                    android:textSize="@dimen/textMean"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerComics" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSeries"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLittle"
+                    android:layout_marginTop="@dimen/marginLittle"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSeries" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

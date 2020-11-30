@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heightButtomNavigation">@dimen/_50sdp</dimen>
+    <dimen name="imageStandar">@dimen/_150sdp</dimen>
+    <dimen name="marginLittle">@dimen/_8sdp</dimen>
+    <dimen name="marginMedium">@dimen/_30sdp</dimen>
+    <dimen name="marginMoreLittle">@dimen/_4sdp</dimen>
+    <dimen name="textMean">@dimen/_12sdp</dimen>
+    <dimen name="textLittle">@dimen/_8sdp</dimen>
+    <dimen name="buttonCircle">@dimen/_30sdp</dimen>
+
+    <dimen name="elevationBig">@dimen/_5sdp</dimen>
+</resources>
