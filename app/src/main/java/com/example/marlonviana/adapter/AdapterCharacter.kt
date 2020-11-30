@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marlonviana.AppMaster
 import com.example.marlonviana.R
+import com.example.marlonviana.databinding.ActivityMainBinding.inflate
+import com.example.marlonviana.databinding.BottomshetCharacterBinding.inflate
+import com.example.marlonviana.databinding.ItemCharacterBinding
+import com.example.marlonviana.databinding.ViewProgressBarBinding.inflate
 import com.example.marlonviana.event.EventTapCharacter
 import com.example.marlonviana.model.DataCharacters
 import com.example.marlonviana.util.setAnimationPushButton
@@ -23,30 +27,28 @@ class AdapterCharacter: RecyclerView.Adapter<AdapterCharacter.ViewHolder>() {
         this.eventTapCharacter = eventTap
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textComic = view.findViewById(R.id.textComic) as TextView
-        val textComicDescrip = view.findViewById(R.id.textComicDescrip) as TextView
-        val imageComic = view.findViewById(R.id.imageComic) as ImageView
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
+    }
+
+    class ViewHolder(binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
+        val binding = binding
     }
 
     @SuppressLint("NewApi", "SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textComic.text = items[position].name
-        holder.textComicDescrip.text = items[position].description
+        holder.binding.textComic.text = items[position].name
+        holder.binding.textComicDescrip.text = items[position].description
 
         Glide.with(AppMaster.contextApp())
             .load(items[position].thumbnail?.path+"."+items[position].thumbnail?.extension)
-            .into(holder.imageComic)
+            .into(holder.binding.imageComic)
 
-        holder.itemView.setOnClickListener {
+        holder.binding.root.setOnClickListener {
             holder.itemView.setAnimationPushButton()
             eventTapCharacter.tapCharacter(items[position])
         }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolder(layoutInflater.inflate(R.layout.item_character, parent, false))
     }
 
     override fun getItemCount(): Int {
